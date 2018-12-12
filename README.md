@@ -8,6 +8,7 @@ v0idfunction
 - SuperCollider
   - ProxySpace
   - [INSTRUMENT](https://github.com/punksnotdev/INSTRUMENT)
+  - [fork of joseCaos's CaosPercLib](https://github.com/punksnotdev/caosperclib)
   - [Librería de sonidos](https://github.com/v0idfunction/music-library)
 
 ### Actos en vivo:
