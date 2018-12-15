@@ -14,7 +14,7 @@
 	p = ProxySpace.push(s);
 	p.makeTempoClock(166/120,'instrument',TempoClock.default);
 
-
+	
 	i=INSTRUMENT();
 
 	p.quant = 4;
