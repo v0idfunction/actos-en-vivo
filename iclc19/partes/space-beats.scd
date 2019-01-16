@@ -1,7 +1,3 @@
-i=INSTRUMENT();
-
-
-
 i[\kick][0].seq(\synthdef, [\kickGabber,\r,\r,\kickElectro]);
 
 i[\kick]=SynthPlayer(\kickElectroKit);
