@@ -1,9 +1,3 @@
-// void function
-// hello world
-// 8 / 12
-
-
-
 // s.boot;
 (
 /*
@@ -18,7 +12,7 @@ clock.play;
 
 //runs on first available input channel
 b = BBCut2(CutGroup(CutStream1(nil,buffer),group,bus),BBCutProc11.new).play(clock);
-b.amp=1;
+b.amp=0.5;
 */
 )
 // amen
@@ -29,7 +23,7 @@ d=BBCutBuffer("/home/mukkekunst/Desktop/lc/nr/samples/classic_amen.wav");
 
 (
 b=BBCut2(CutGroup([CutBuf1(d, 0.3), CutRev1(0.0, 0.0)]), BBCutProc11()).play(166/60);
-b.amp=1;
+b.amp=0.45;
 
 )
 
@@ -46,7 +40,7 @@ s.sync;
 
 //3.33bps= 200 bpm
 c=BBCut2(CutBuf1(d),SQPusher1.new).play(166/60);
-c.amp=1;
+c.amp=0.5;
 
 });
 )
@@ -64,7 +58,7 @@ s.sync;
 
 //3.33bps= 200 bpm
 b=BBCut2(CutBuf3(d),SQPusher1.new).play(166/60);
-b.amp=1;
+b.amp=0.5;
 });
 )
 
@@ -107,7 +101,7 @@ b.end;
 
     s.sync;
     b=BBCut2([CutBuf1(sf[0],0.3),CutBuf1(sf[1],0.45)],SQPusher1(0.4)).play(clock);
-    b.amp=1;
+    b.amp=0.5;
 
     });
 
@@ -125,7 +119,7 @@ Routine.run({
 s.sync;
 
 c= BBCut2([CutBuf2(d, 0.3, dutycycle: 0.7), CutMixer(0,1.0,{if(0.2.coin,{0},{1})},{1.0.rand2})],SQPusher1(0.3,2, 1.0)).play(166/60);
-c.amp=1;
+c.amp=0.5;
 });
 )
 
@@ -143,7 +137,7 @@ sf= BBCutBuffer("/home/mukkekunst/Desktop/lc/nr/samples/classic_amen.wav",4);
 s.sync;
 
 b=BBCut2([CutBuf3(sf,0.3,pbsfunc:SQPushFXPitch2.new(0.96,pbchance:0.8)),CutMixer(0,1.0,SQPushFXAmp2.new(0.15),0.0)],SQPusher1(0.4, 3, 0.4)).play(166/60);
-b.amp=1;
+b.amp=0.5;
 
 });
 

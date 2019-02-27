@@ -1,8 +1,17 @@
-// void function
-// hello world
-// 10 / 12
+(
 
-i.autoMIDI = true;
+	s.options.memSize=2048*1024;
+	s.options.maxNodes=128*1024;
+	s.boot;
+	s.scope;
+
+)
+
+(
+
+	i=INSTRUMENT();
+
+	TempoClock.default.tempo=195/120;
 
 	i[\pad1]=SynthPlayer(\pad1);
 	i[\pad1].amp=1;
@@ -13,7 +22,6 @@ i.autoMIDI = true;
 	i[\pad1][1].seq(\note,"8 5 2",[\speed,1/2,\repeat,2]);
 
 
-	i.autoMIDI = false;
 
 	i[\kick]=SynthPlayer(\kickSyn1);
 	i[\kick].seq(":0.25  0.8xx ");
@@ -29,9 +37,6 @@ i.autoMIDI = true;
 	i[\hihat][0].seq(":0.25 1xx ",[\repeat,8]);
 	i[\hihat][1].seq(":0.125 1xx ");
 
-
-	i.autoMIDI = true;
-
 	i[\drums]=[
 		\kick,
 		\kick2,
@@ -43,4 +48,4 @@ i.autoMIDI = true;
 	i[\drums].amp=0.3
 
 
-	i.autoMIDI = false;
+)

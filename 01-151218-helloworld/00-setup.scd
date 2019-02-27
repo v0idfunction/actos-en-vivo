@@ -2,19 +2,23 @@
 
 	s.options.memSize=2048*1024;
 	s.options.maxNodes=128*1024;
+	s.options.numInputBusChannels=2;
 	s.boot;
 
 )
 (
 
+	s.volume=(-12);
+
 	s.scope;
+	s.meter;
 
 	TempoClock.default.tempo=166/120;
 	ProxySpace.clearAll;
 	p = ProxySpace.push(s);
 	p.makeTempoClock(166/120,'instrument',TempoClock.default);
 
-	
+
 	i=INSTRUMENT();
 
 	p.quant = 4;
@@ -29,12 +33,13 @@
 	~z.fadeTime = 5;
 	~z = {|amp=1| WhiteNoise.ar(amp) };
 
-	~amp = 0.85;
-
+	~amp = 0.5;
+	~mix.quant=4;
 	~mix = ~z;
 
 	~mix.fadeTime=0;
 
+	~out.quant=4;
 	~out = {
 		Pan2.ar(
 			Limiter.ar(
@@ -67,14 +72,18 @@
 
 	// ~z = { Silent.ar ! 2 };
 
+	// cargar synthdefs
+	i.synths = "/home/mukkekunst/Musica/voidfunction/library/Tools/load-synths.scd".load;
 
+	// i.gui.synthdefsList(i.synths.asArray,{})
 
 	// cargar controlador MIDI
 	"/home/mukkekunst/Musica/furenku/sets/01-morelia/midi-multidevice.scd".load;
 
 
+
 	"".postln;
-	"---------------------------".postln;
+	"-------------178	283--------------".postln;
 	"setup listo".postln;
 	"---------------------------".postln;
 	"".postln;
