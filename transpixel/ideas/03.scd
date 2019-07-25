@@ -110,3 +110,44 @@ Tdef(\break,{
 	}
 }).play;
 )
+
+
+
+
+
+
+i.pads=(
+	p0: INSTRUMENT(i.synths.pad.choose),
+	p1: INSTRUMENT(i.synths.pad.choose),
+	p2: INSTRUMENT(i.synths.pad.choose),
+	p3: INSTRUMENT(i.synths.pad.choose),
+);
+
+// Scale.hungarianMinor
+i.pads.p0.note( "C  G   Bb :0.5 G3   Db" ).random.speed(1/4).maybe.pyramid;
+i.pads.p1.note( "C  G   Bb :0.5 G3   Db" ).random.speed(1/4).maybe.pyramid;
+i.pads.p2.note( "C  G   Bb :0.5 G3   Db" ).random.speed(1/4).maybe.pyramid;
+i.pads.p3.note( "C  G   Bb :0.5 G3   Db" ).random.speed(1/4).maybe.pyramid;
+
+
+i.pads.p0.octave=5+0;
+i.pads.p1.octave=5+1;
+i.pads.p2.octave=5+2;
+i.pads.p3.octave=5+3;
+
+
+
+i.drums.stop
+
+i.bass.fx=\delay2;
+
+
+i.bass.stop;
+i.pads.stop;
+
+i.drums.play;
+i.drums.fx="gateDistort.crunch";
+
+
+i.bass.play;
+i.pads.play;
