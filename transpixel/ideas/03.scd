@@ -1,5 +1,6 @@
 i = INSTRUMENT().play;
 
+i.tempo=192;
 
 (
 i.drums = (
@@ -16,14 +17,28 @@ i.drums = (
 
 (
 	i.bass= INSTRUMENT(i.synths.trance[2]);
-i.bass.amp=2;
-i.bass.octave=4;
-i.bass.set(\rel, 2);
+	i.bass.amp=2;
+	i.bass.octave=4;
+	i.bass.set(\rel, 2);
 )
 
 
 i.bass[0].note(" 0 :1/2 1x2").speed(1).x(3);
 i.bass[1].note(" 0 :1/2 3 1").speed(1).x(1);
+
+
+i.noise=INSTRUMENT(i.synths.noiseLead_XY);
+
+i.noise.mode=\mono;
+i.noise.amp=0;
+i.noise[0].note("12  10  9 8  1     :1/6 0 5 6 :4 8")
+i.noise.amp=0.5;
+i.noise[1].note(":4 12 1  :1/2 7 0  7  0 7 :1/6 0 5 6 :4 0 :1/6 0 5 6 :4 0 1")
+
+i.noise.amp=1/2;
+
+
+
 i.bass[2].note(" 0 :1/2 1x2").speed(1).x(3);
 i.bass[3].note(" 0 :1/2 3 Bb3").speed(1).x(1);
 
