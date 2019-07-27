@@ -7,11 +7,11 @@ s.doWhenBooted({
 i=INSTRUMENT().play;
 
 
-i.piano=INSTRUMENT(i.synths.piano.choose);
+i.piano=INSTRUMENT(i.synths.piano[1]);
 //
 
 
-i.piano[0].note("0 3").speed(2).x(3);
+i.piano[0].note("0 3").speed(2).x(2);
 i.piano[1].note("7 :1/2  12xx ").speed(2).x(1);
 i.piano[2].note("7 :1/2  C3 0 ").speed(2).x(1);
 i.testkit=(
@@ -21,7 +21,7 @@ i.testkit=(
 	clap: INSTRUMENT(i.synths.clap[2]),
 );
 
-i.piano.amp=1/2;
+i.piano.amp=2;
 i.piano.octave=3;
 
 
@@ -33,7 +33,7 @@ i.testkit.hihat.amp=1/4;
 i.testkit.clap[0].seq(" 1").x(3);
 i.testkit.clap[1].seq(":1/2  1.2x2 ").x(1);
 i.testkit.clock=2;
-i.testkit.go(0)
+
 // i.testkit.stop
 // i.testkit.go(0)
 // i.testkit.play
