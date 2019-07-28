@@ -1,6 +1,6 @@
-i = INSTRUMENT().play;
+// i = INSTRUMENT().play;
 
-i.tempo=192;
+// i.tempo=192;
 
 (
 i.drums = (
@@ -32,10 +32,11 @@ i.noise=INSTRUMENT(i.synths.noiseLead_XY);
 i.noise.mode=\mono;
 i.noise.amp=0;
 i.noise[0].note("12  10  9 8  1     :1/6 0 5 6 :4 8")
-i.noise.amp=0.5;
 i.noise[1].note(":4 12 1  :1/2 7 0  7  0 7 :1/6 0 5 6 :4 0 :1/6 0 5 6 :4 0 1")
 
+i.noise.amp=0.01;
 i.noise.amp=1/2;
+
 
 
 
@@ -45,6 +46,8 @@ i.bass[3].note(" 0 :1/2 3 Bb3").speed(1).x(1);
 i.bass[4].note(" 0 :1/2 1 G3 3 5xxx :1 0 Bb3 7").speed(1).x(4);
 
 
+i.noise.amp=0.4;
+i.noise.amp=0.0;
 
 i.drums.k1[0].seq(" 1 :1/2 1x2").speed(1).x(3);
 i.drums.k1[1].seq(" 1 :1/2 1x2").speed(2).x(2);
@@ -56,20 +59,30 @@ i.drums.h2[0].seq(" 1xx  :2  1").speed(8).x(9);
 i.drums.h2[1].seq("1xx  :1/2  1x4 1").speed(8).x(3);
 
 i.drums.h2.amp = 0.8;
-i.drums.h2.set(\rel, 0.5);
+i.drums.h2.set(\rel, 0.25);
+i.drums.h2.seq(\rel, [0.25, \r, 0.5]).speed(1/4);
 
 
 i.drums.s1[0].seq(" 1").speed(2).x(7);
 i.drums.s1[1].seq("1x3  1xx :2 ").speed(8).x(1);
 
 
+i.drums.k1[0].seq(" 1 :1/4     1  1 ").speed(1).x(3);
+i.drums.k1[1].seq(" 1 :1/4   1  1   ").speed(1).x(3);
+i.drums.k1[2].seq(" 1 :1/4    1  1  ").speed(1).x(3);
+i.drums.k1[3].seq(" 1 :1/2 1x2").speed(2).x(2);
+i.drums.k1[4].seq(" 1 :1/2 1x2").speed(4).x(8);
+
+
 
 (
-	i.bass.stop;
 	i.drums.clock=1/4;
 	i.drums.fx=\delay2;
+	i.drums.fx=nil;
+	i.bass.stop.clock=1/2;
 )
 
+i.bass.stop;
 (
 i.every(8,{
 
@@ -79,6 +92,7 @@ i.every(8,{
 	i.drums.clock=1/[1/2, 1, 2, 4, 6, 8].choose;
 
 });
+
 )
 
 

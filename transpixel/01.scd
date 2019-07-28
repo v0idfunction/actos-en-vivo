@@ -1,4 +1,4 @@
-p=ProxySpace.push(s);
+// p=ProxySpace.push(s);
 
 ~x.play;
 
@@ -27,16 +27,26 @@ p=ProxySpace.push(s);
 	};
 )
 
-m=MandelHub.start("furenku")
-m.clear
 
-
-i=INSTRUMENT().play;
 
 i.x=INSTRUMENT(~x);
 
 i.x.octave=5;
 
+(
+
+	i.x.chord([
+		C(0,\m),
+		\r,
+		C(0,\m,2),
+		\r,
+		C(0,\sus2,1),
+		\r,
+		C(1,\Mmaj7,1),
+		C(1,\Mmaj7,2),
+	]).speed(1/2)
+
+)
 (
 i.x.chord([
 	C(0,\m),

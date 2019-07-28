@@ -224,6 +224,8 @@ i.btk_dnb=(
 	snare: INSTRUMENT(i.synths.snareNeuro),
 )
 i.btk_dnb.clock=1/3
+i.btk_dnb.amp=1.2;
+
 i.btk_dnb.play
 i.btk_dnb.stop
 i.electro.stop
